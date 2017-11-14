@@ -1,5 +1,4 @@
 # Football-team-database
-course-project
 
 
 First of all you need to create an account and choose the role(admin or user).
