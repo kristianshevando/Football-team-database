@@ -9,6 +9,11 @@ Player::Player()
 {
 }
 
+void Player::setID(int id)
+{
+   this->id = id;
+}
+
 void Player::set_name(string name)
 {
    this->name = name;
@@ -47,6 +52,11 @@ void Player::set_yc(int yc)
 void Player::set_rc(int rc)
 {
    this->rc = rc;
+}
+
+int Player::getID()
+{
+   return this->id;
 }
 
 string Player::get_name()

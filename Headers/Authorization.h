@@ -13,6 +13,7 @@
 #include <vector>
 #include <fstream>
 #include "../bprinter-master/include/bprinter/table_printer.h"
+//#include "../Superadmin.h"
 
 using namespace bprinter;
 
@@ -25,6 +26,7 @@ class Authorization
 {
 
 private:
+//Superadmin superadmin;
 Account account;
 vector<Account> accounts;
 Account for_read_db(std::string);

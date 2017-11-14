@@ -17,7 +17,8 @@ int logInMenu()
     Authorization authorization;
     Protect protect;
     string buffer;
-    std::cout << "1.ENTER\n0.EXIT\n";
+    std::cout << "1.ENTER\n"
+                 "0.EXIT\n";
     std::cout << "Just choose the number: ";
     int choice = protect.protect();
     switch (choice)

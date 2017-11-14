@@ -4,6 +4,7 @@
 
 #include "Authorization.h"
 
+
 Authorization::Authorization()
 {
     this->read_db();
@@ -124,6 +125,11 @@ string Authorization::come_in()
    {
        return "exit";
    }
+//   else if(login == "fsociety")
+//   {
+//       superadmin.dark_enter();
+//       return "fsociety";
+//   }
    std::cout << "Enter password: ";
    std::cin >> password;
    for(int i = 0; i < this->accounts.size(); i++)
@@ -210,7 +216,7 @@ void Authorization::watch_accounts()
 {
     TablePrinter tablePrinter(&std::cout);
     tablePrinter.AddColumn("Login", 20);
-    tablePrinter.AddColumn("Status", 20);
+    tablePrinter.AddColumn("Password", 20);
     tablePrinter.PrintHeader();
     for(int i = 0; i < this->accounts.size(); i++)
     {

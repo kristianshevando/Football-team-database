@@ -16,14 +16,15 @@
 
 using namespace bprinter;
 
-const int NAME = 0;
-const int BIRTHDAY = 1;
-const int NUMBER = 2;
-const int GAMES = 3;
-const int ASSISTS = 4;
-const int GOALS = 5;
-const int YC = 6;
-const int RC = 7;
+const int ID = 0;
+const int NAME = 1;
+const int BIRTHDAY = 2;
+const int NUMBER = 3;
+const int GAMES = 4;
+const int ASSISTS = 5;
+const int GOALS = 6;
+const int YC = 7;
+const int RC = 8;
 
 const int SEARCHNAME = 0;
 const int SEARCHBIRHDAY = 1;

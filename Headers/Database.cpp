@@ -55,6 +55,7 @@ Player Database::for_read(string buffer)
             }
         }
     }
+    player.setID(stoi(vector1[ID]));
     player.set_name(vector1[NAME]);
     player.set_birthday(vector1[BIRTHDAY]);
     player.set_number(vector1[NUMBER]);
@@ -69,6 +70,7 @@ Player Database::for_read(string buffer)
 
 void Database::head(TablePrinter & tablePrinter)
 {
+    tablePrinter.AddColumn("<>", 4);
     tablePrinter.AddColumn("Name", 12);
     tablePrinter.AddColumn("Birthday", 12);
     tablePrinter.AddColumn("Number", 6);
@@ -92,6 +94,7 @@ void Database::save_database()
     fout.open(TEAM);
     for(int i = 0; i < this->players.size(); i++)
     {
+        fout << "\"" << this->players[i].getID() << "\" ";
         fout << "\"" << this->players[i].get_name() << "\" ";
         fout << "\"" << this->players[i].get_birthday() << "\" ";
         fout << "\"" << this->players[i].get_number() << "\" ";
@@ -129,6 +132,7 @@ void Database::add_player()
     cout << "Red cards: ";
     rc = protect.protect();
 
+    player.setID(this->players.size());
     player.set_name(name);
     player.set_birthday(birthday);
     player.set_number(number);
@@ -166,16 +170,21 @@ void Database::delete_player()
 void Database::view_all_players()
 {
     TablePrinter tablePrinter(&std::cout);
-    this->head(tablePrinter);
-    tablePrinter.PrintHeader();
-    for(int i = 0; i < this->players.size(); i++)
+    if(this->players.size() == 0)
     {
-        tablePrinter << this->players[i].get_name() << this->players[i].get_birthday()
-                     << this->players[i].get_number() << this->players[i].get_games()
-                     << this->players[i].get_assists() << this->players[i].get_goals()
-                     << this->players[i].get_yc() << this->players[i].get_rc();
+        cout << "Database of players is empty!" << std::endl;
     }
-    tablePrinter.PrintFooter();
+    else {
+        this->head(tablePrinter);
+        tablePrinter.PrintHeader();
+        for (int i = 0; i < this->players.size(); i++) {
+            tablePrinter << this->players[i].getID() << this->players[i].get_name() << this->players[i].get_birthday()
+                         << this->players[i].get_number() << this->players[i].get_games()
+                         << this->players[i].get_assists() << this->players[i].get_goals()
+                         << this->players[i].get_yc() << this->players[i].get_rc();
+        }
+        tablePrinter.PrintFooter();
+    }
 }
 
 int Database::looking_for_player(string name)
@@ -194,7 +203,7 @@ void Database::show_player(int i)
 {
     TablePrinter tablePrinter(&std::cout);
     this->head(tablePrinter);
-    tablePrinter << this->players[i].get_name() << this->players[i].get_birthday()
+    tablePrinter << this->players[i].getID() << this->players[i].get_name() << this->players[i].get_birthday()
                  << this->players[i].get_number() << this->players[i].get_games()
                  << this->players[i].get_assists() << this->players[i].get_goals()
                  << this->players[i].get_yc() << this->players[i].get_rc();

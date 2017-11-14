@@ -13,7 +13,7 @@ using namespace std;
 class Player
 {
 private:
-    int numb = 0;
+    int id;
     Birthday date;
     string name;
     Birthday birthday;
@@ -25,6 +25,7 @@ private:
     int rc;
 public:
     Player();
+    void setID(int);
     void set_name(string);
     void set_birthday(string);
     void set_number(string);
@@ -34,6 +35,7 @@ public:
     void set_yc(int);
     void set_rc(int);
 
+    int getID();
     string get_name2();
     string get_name();
     string get_birthday();
